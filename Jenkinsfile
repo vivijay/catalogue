@@ -45,11 +45,11 @@ pipeline {
         // }
 
         
-        // stage('Deploy') {
-        //     steps {
-        //         echo "Deployment"
-        //     }
-        // }
+        stage('Deploy') {
+            steps {
+                echo "Deployment"
+            }
+        }
     }
 
     // post{
