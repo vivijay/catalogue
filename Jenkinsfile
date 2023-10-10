@@ -12,18 +12,18 @@ pipeline {
             }
         }
      //   sonar-scanner command expect sonar-project.properties should be available
-        stage('Sonar Scan') {
-            steps {
-                sh 'ls -ltr'
-                sh 'sonar-scanner'
-            }
-        }
-        // stage('Build') {
+        // stage('Sonar Scan') {
         //     steps {
         //         sh 'ls -ltr'
-        //         sh 'zip -r catalogue.zip ./* --exclude=.git --exclude=.zip'
+        //         sh 'sonar-scanner'
         //     }
         // }
+        stage('Build') {
+            steps {
+                sh 'ls -ltr'
+                sh 'zip -r catalogue.zip ./* --exclude=.git --exclude=.zip'
+            }
+        }
         // stage('Publish Artifact') {
         //     steps {
         //         nexusArtifactUploader(
@@ -52,10 +52,10 @@ pipeline {
         }
     }
 
-    // post{
-    //     always{
-    //         echo 'cleaning up workspace'
-    //         deleteDir()
-    //     }
-    // }
+    post{
+        always{
+            echo 'cleaning up workspace'
+            deleteDir()
+        }
+    }
 }
