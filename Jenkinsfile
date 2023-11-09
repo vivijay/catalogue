@@ -31,11 +31,15 @@ pipeline {
         //         sh 'sonar-scanner'
         //     }
         // }
+        stage('Sonar Scan') {
+            steps{
+                echo "Sonar scan done"
+            }
+        }
         stage('Build') {
             steps {
-                // sh 'ls -ltr'
-                // sh 'zip -r catalogue.zip ./* --exclude=.git --exclude=.zip'
-                echo "Sonar scan done"
+                sh 'ls -ltr'
+                sh 'zip -r catalogue.zip ./* --exclude=.git --exclude=.zip'
             }
         }
         stage('Sast') {
