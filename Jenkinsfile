@@ -43,7 +43,7 @@ pipeline {
                 echo "Sast done"
             }
         }
-        install pipeline utility steps plugin, if not installed.
+       // install pipeline utility steps plugin, if not installed.
         stage('Publish Artifact') {
             steps {
                 nexusArtifactUploader(
