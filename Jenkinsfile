@@ -67,9 +67,12 @@ pipeline {
                 )
             }
         }
+        // here i need to configure downstream job . I have to pass package version for deploymrnt 
+        // This job will wait until downstrream job is completed so wait is true .
         stage('Deploy') {
             steps {
                 echo "Deployment"
+                build job: "../catalogue-deploy", wait: true
             }
         }
     }
